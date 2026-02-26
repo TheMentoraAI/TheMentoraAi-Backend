@@ -1,0 +1,65 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Core Basics",
+      "description": "Fundamentals of prompts, specificity, role assignment, format, limits.",
+      "topics": [
+        "What is a Prompt",
+        "Specific Instructions",
+        "Role Assignment",
+        "Output Formatting",
+        "Concise Limits"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Prompt Formulation",
+      "description": "Persona, context, task, examples, iteration, chaining.",
+      "topics": [
+        "Persona",
+        "Context",
+        "Task Clarity",
+        "Examples",
+        "Iterative Refinement",
+        "Follow-up Prompts"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Advanced Patterns",
+      "description": "Zero-shot, few-shot, chain-of-thought, templates.",
+      "topics": [
+        "Zero Shot",
+        "Few Shot",
+        "Chain of Thought",
+        "Templates",
+        "Audience Tailoring"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Practical Applications",
+      "description": "Content creation, coding, problem solving, flows.",
+      "topics": [
+        "Content Drafting",
+        "Debugging",
+        "Math Breakdown",
+        "Conversational Flows",
+        "Output Polishing"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Best Practices and Ethics",
+      "description": "Verification, neutrality, bias reduction, responsible use.",
+      "topics": [
+        "Fact Verification",
+        "Bias Reduction",
+        "Custom Instructions",
+        "Ethical Use",
+        "Data Privacy"
+      ]
+    }
+  ]
+}

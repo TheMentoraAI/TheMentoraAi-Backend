@@ -1,0 +1,39 @@
+{
+    "track": "AI for Developers",
+    "description": "Master AI tools for coding and building intelligent applications.",
+    "lessons": [
+        {
+            "id": 1,
+            "title": "AI-Assisted Coding",
+            "description": "Learn to use AI coding assistants effectively to speed up development.",
+            "topics": [
+                "Code Generation",
+                "Refactoring with AI",
+                "Debugging",
+                "Writing Tests"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Integrating LLMs",
+            "description": "Build applications that consume LLM APIs like OpenAI or Anthropic.",
+            "topics": [
+                "API Basics",
+                "Prompt Construction for Code",
+                "JSON Mode",
+                "Function Calling"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Building Agents",
+            "description": "Create autonomous agents that can use tools and reason.",
+            "topics": [
+                "ReAct Pattern",
+                "Tool Use",
+                "RAG (Retrieval Augmented Generation)",
+                "Memory Management"
+            ]
+        }
+    ]
+}
