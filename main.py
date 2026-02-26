@@ -1,18 +1,22 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, Request
 from pydantic import BaseModel
 from typing import Optional
 from openai import OpenAI
-import json, os
+import json, os, traceback, logging
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Import database and routers
 import database
 import auth
 import models
 import dependencies
-from routers.auth_router import router as auth_router
 from routers.auth_router import router as auth_router
 from routers.users_router import router as users_router
 from routers.tracks_router import router as tracks_router
@@ -40,6 +44,23 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Global exception handler to ensure CORS headers are always present
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Unhandled error on {request.method} {request.url}: {exc}")
+    logger.error(traceback.format_exc())
+    return JSONResponse(
+        status_code=500,
+        content={"detail": f"Internal server error: {str(exc)}"},
+        headers={
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "*",
+            "Access-Control-Allow-Headers": "*",
+        }
+    )
+
 
 # Include routers
 app.include_router(auth_router)
