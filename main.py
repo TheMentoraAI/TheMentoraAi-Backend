@@ -144,11 +144,15 @@ You MUST include a requirement in this new task that specifically forces the use
         role = preferences.get("role", "student")
         
         preference_instruction = f"""
-PERSONALIZATION:
-- User Role: {role}
-- User Goal: {goal}
+PERSONALIZATION (CRITICAL):
+- The User's Role is: {role}
+- The User's Goal is: {goal}
 - Skill Level: {level}
-(Adjust the difficulty and context of the task to match this profile. e.g. if 'Developer', use code examples. If 'Beginner', keep it simple.)
+
+You MUST tailor everything about this task specifically to resonate with someone who is a "{role}".
+The scenario you create, the examples you use, and the terminology MUST be uniquely relevant to a {role} trying to achieve their goal of {goal}.
+If they are a Marketer, the scenario is a marketing campaign. If a Developer, it's code generation. 
+If a Founder, it's a pitch deck. Speak to them and craft tasks purely in the context of their daily responsibilities!
 """
 
     return f"""
@@ -164,13 +168,18 @@ User State:
 {preference_instruction}
 {feedback_instruction}
 
-Rules:
-- Practical real-world task
-- ONE TASK ONLY
-- Increasing difficulty
-- No theory
-- Focus only on current lesson topics
-- Clear instructions
+Teaching Flow & Activity Rules based on Lesson (Choose appropriately based on the 'Lesson'):
+- If Lesson 1 (Understanding LLM Behavior): Ask user an intriguing question (e.g. "What do you think ChatGPT does when you ask a question?"). Give a task to compare 3 prompt variations (e.g., standard, like I'm 10, bullet points).
+- If Lesson 2 (Core Prompting Techniques): Give the user a task to apply Role, Few-Shot, or Zero-Shot prompting WITHOUT introducing the theoretical names first. 
+- If Lesson 3 (Prompt Structure Framework): Teach the framework "[ROLE] + [CONTEXT] + [TASK] + [CONSTRAINTS] + [OUTPUT FORMAT]". Give a vague prompt and ask them to improve it using the framework.
+- If Lesson 4 (Iteration & Refinement): Give an imperfect output to a prompt and guide the user step-by-step to refine it via follow-up prompts.
+- If Lesson 5 (Real-World Applications): Ask the user to pick a real-world task (Resume, Content creation, Study notes, Startup idea) and build a structured prompt for it.
+- If Lesson 6 (Advanced Prompting): Give a complex task and require step-by-step thinking or having the AI asking them questions to refine an idea.
+
+General Rules:
+- Limit your response to ONE SINGLE PRACTICAL TASK depending on the Lesson.
+- Do not overload the user with theory.
+- Maintain a helpful, conversational mentor tone.
 """
 
 
@@ -227,8 +236,18 @@ async def generate_task(
     }
 
 def get_evaluation_criteria(lesson_title):
-    if lesson_title == "Core Basics" or "Introduction" in lesson_title:
-        return "Clarity, Specificity, Role Assignment, Output Format, Conciseness"
+    if "Understanding LLM Behavior" in lesson_title:
+        return "Identify differences in tone, detail, and structure. Explain why prompt wording changes output."
+    elif "Core Prompting Techniques" in lesson_title:
+        return "Effectively use Role Prompting, Zero-shot, or Few-shot techniques. Output quality improves vs basic prompt."
+    elif "Prompt Structure Framework" in lesson_title:
+        return "Includes Role, clear Task, Constraints, and Output Format."
+    elif "Iteration & Refinement" in lesson_title:
+        return "Uses follow-up prompts. Output improves progressively."
+    elif "Real-World Applications" in lesson_title:
+        return "Prompt is well-structured and output is usable in real life."
+    elif "Advanced Prompting" in lesson_title:
+        return "Leverages AI as collaborator. Uses multi-step prompting. Breaks problems into steps."
     return "Persona, Context, Clear Task, Examples, Iteration"
 
 

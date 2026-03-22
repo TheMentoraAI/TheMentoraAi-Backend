@@ -2,63 +2,65 @@
   "lessons": [
     {
       "id": 1,
-      "title": "Core Basics",
-      "description": "Fundamentals of prompts, specificity, role assignment, format, limits.",
+      "title": "Understanding LLM Behavior",
+      "description": "User understands that LLMs generate text based on patterns, not intelligence.",
       "topics": [
-        "What is a Prompt",
-        "Specific Instructions",
-        "Role Assignment",
-        "Output Formatting",
-        "Concise Limits"
+        "Why prompt wording changes output",
+        "Better vs worse prompts",
+        "Tone, detail, and structure differences"
       ]
     },
     {
       "id": 2,
-      "title": "Prompt Formulation",
-      "description": "Persona, context, task, examples, iteration, chaining.",
+      "title": "Core Prompting Techniques",
+      "description": "User can apply zero-shot, few-shot, and role prompting.",
       "topics": [
-        "Persona",
-        "Context",
-        "Task Clarity",
-        "Examples",
-        "Iterative Refinement",
-        "Follow-up Prompts"
+        "Role Prompting",
+        "Few-Shot Prompting",
+        "Zero-Shot Prompting"
       ]
     },
     {
       "id": 3,
-      "title": "Advanced Patterns",
-      "description": "Zero-shot, few-shot, chain-of-thought, templates.",
+      "title": "Prompt Structure Framework",
+      "description": "User learns a repeatable prompting formula: [ROLE] + [CONTEXT] + [TASK] + [CONSTRAINTS] + [OUTPUT FORMAT]",
       "topics": [
-        "Zero Shot",
-        "Few Shot",
-        "Chain of Thought",
-        "Templates",
-        "Audience Tailoring"
+        "Converting vague prompts to structured prompts",
+        "Role definition",
+        "Context and task clarity",
+        "Constraints and format"
       ]
     },
     {
       "id": 4,
-      "title": "Practical Applications",
-      "description": "Content creation, coding, problem solving, flows.",
+      "title": "Iteration & Refinement",
+      "description": "User understands prompting is iterative and improves outputs step-by-step.",
       "topics": [
-        "Content Drafting",
-        "Debugging",
-        "Math Breakdown",
-        "Conversational Flows",
-        "Output Polishing"
+        "Iterative refinement",
+        "Follow-up prompts",
+        "Step-by-step improvement"
       ]
     },
     {
       "id": 5,
-      "title": "Best Practices and Ethics",
-      "description": "Verification, neutrality, bias reduction, responsible use.",
+      "title": "Real-World Applications",
+      "description": "User applies prompting to real problems.",
       "topics": [
-        "Fact Verification",
-        "Bias Reduction",
-        "Custom Instructions",
-        "Ethical Use",
-        "Data Privacy"
+        "Resume improvement",
+        "Content creation",
+        "Study notes",
+        "Startup ideas"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Advanced Prompting",
+      "description": "User handles complex tasks and breaks problems into steps.",
+      "topics": [
+        "Step-by-Step Thinking",
+        "AI Asking Questions",
+        "Multi-step prompting",
+        "AI as a collaborator"
       ]
     }
   ]
